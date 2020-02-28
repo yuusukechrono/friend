@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="col-md-2"><div class="visible-lg"><%= image_tag 'mori.jpg' %></div> </div>  
+  <div class="col-md-8">
+    <header class="header">投稿</header>
+
+    <%= form_with(model: @blog, local: true, url: choose_new_or_edit ) do |form| %>
+      <% if @blog.errors.any? %>
+        <div id="error_explanation">
+          <p><%= @blog.errors.count %>件のエラーがあります。</p>
+          <ul>
+          <% @blog.errors.full_messages.each do |msg| %>
+           <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+  
+    <br>
+    <div class="row">
+      <div class="content">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <%= form.text_area :title, class: 'input-title' %>
+          </div>
+          <div class="panel-body">
+            <%= form.text_area :content,  class: 'input-content', id: 'input-text'%><p id="counter">0文字</p>
+          </div>
+          <div class="panel-footer">
+            <%= form.submit '登録する', class: 'btn btn-primary' %>
+          </div>
+        </div>
+      </div>
+      <div class=row>
+        <div class="top-bottom">
+          <%= link_to '投稿一覧へ', blogs_path, class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <div class="company">© Friend Corp. All RIGHTS RESERVED.</div>
+    </fotter>
+  </div>
+
+  <div class="col-md-2"><div class="visible-lg"><%= image_tag 'making_150202_03.jpg' %></div></div>
+</div>
+<% end %>
