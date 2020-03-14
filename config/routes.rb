@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   get 'blogs/index'
   root 'blogs#index'
- resources :blogs do
+  resources :blogs do
    collection do
-     post :confirm
+    post :confirm
    end
- end
+  end
+
+  resources :users, only: [:new, :create]
 end
