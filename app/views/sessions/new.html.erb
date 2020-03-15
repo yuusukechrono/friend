@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="col-xs-2"><div class="visible-lg"><%= image_tag 'mori.jpg' %></div></div>   
+    
+    <div class="col-xs-8">
+
+      <header>Log in</header>
+      <br>
+      <% if logged_in? %>
+        <%= link_to "Profile", user_path(current_user.id) %>
+        <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+        <br><br>
+      <% else %>
+        <%= link_to "Sign up", new_user_path %>
+        <%= link_to "Login", new_session_path %>
+        <br><br>
+      <% end %>
+
+      <% flash.each do |key,value|%>
+        <%= content_tag(:div, value, class:"#{key}") %>
+      <% end %>
+
+      <%= form_with(scope: :session, url:sessions_path, local:true) do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email %><br>
+      <%= f.label :password %>
+      <%= f.password_field :password %><br>
+      <%= f.submit "Log in" %>
+      <% end %>
+
+      <footer>
+        <div class="company">© Friend Corp. All RIGHTS RESERVED.</div>
+      </fotter>
+
+    </div>
+    <div class="col-xs-2"><div class="visible-lg"><%= image_tag 'making_150202_03.jpg' %></div></div>
+</div>

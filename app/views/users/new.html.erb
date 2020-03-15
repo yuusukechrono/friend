@@ -3,11 +3,30 @@
     
     <div class="col-xs-8">
 
-      <header>Sign up</header>
+      <header>新規登録</header>
       <br>
-      <p><%= notice %></p>
+      <% if logged_in? %>
+        <%= link_to "Profile", user_path(current_user.id) %>
+        <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+        <br><br>
+      <% else %>
+        <%= link_to "Sign up", new_user_path %>
+        <%= link_to "Login", new_session_path %>
+        <br><br>
+      <% end %>
 
-      <%= form_with(model:@user, loacl:true) do |f|%>
+      <% if @user.errors.any? %>
+        <div id="error_explanation">
+          <h1><%= pluralize(@user.errors.count, "error") %> prohibited this @user from being saved:</h1>
+          <ul>
+          <% @user.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      
+      <%= form_with(model: @user, local: true) do |f| %>
         <%= f.label :name %>
         <%= f.text_field :name %><br>
         <%= f.label :email %>
@@ -16,7 +35,8 @@
         <%= f.password_field:password %><br>
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_cofirmation %><br>
-        <%= f.submit "Create my account" %><br>
+        <%= f.submit "Create my account" %>
+        <br>
       <% end %>
 
       <footer>
