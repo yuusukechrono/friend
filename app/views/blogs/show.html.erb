@@ -21,7 +21,7 @@
                 <p><%= blog.title%></p>
                 <p><%= blog.content%></p>
                 <p><%= image_tag(blog.image.url) if @blog.image.present? %></p>
-                <div class="bottom-text"><%= blog.created_at %></div>
+                <div class="panel-body.bottom-text"><%= blog.created_at %></div>
               </div>
               <div class="panel-footer">
                 <%= link_to '閲覧', blog_path(blog.id), class: 'btn btn-primary' %>

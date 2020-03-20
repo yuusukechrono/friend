@@ -2,7 +2,8 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 
   def index
-     @blogs = current_user.blogs
+    @blogs = Blog.all
+#    @blogs = current_user.blogs
   end
 
   def new
@@ -53,7 +54,7 @@ class BlogsController < ApplicationController
   end
 
   def set_blog
-    @blog = current_user.blogs.find(params[:id])
+    @blog = current_user.blogs.find(params[:id])     
   end
 
 end
