@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'blogs/index'
-  root 'blogs#index'
+  get 'sessions/new'
+  root 'sessions#new'
   resources :blogs do
    collection do
     post :confirm

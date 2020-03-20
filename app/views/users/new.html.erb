@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="col-xs-2"><div class="visible-lg"><%= image_tag 'mori.jpg' %></div></div>   
+    <div class="col-xs-2"><div class="visible-lg"><%= image_tag 'mori.jpg', class:"ad" %></div></div>   
     
     <div class="col-xs-8">
 
@@ -10,7 +10,6 @@
         <%= link_to "Logout", session_path(current_user.id), method: :delete %>
         <br><br>
       <% else %>
-        <%= link_to "Sign up", new_user_path %>
         <%= link_to "Login", new_session_path %>
         <br><br>
       <% end %>
@@ -44,5 +43,5 @@
       </fotter>
 
     </div>
-    <div class="col-xs-2"><div class="visible-lg"><%= image_tag 'making_150202_03.jpg' %></div></div>
+    <div class="col-xs-2"><div class="visible-lg"><%= image_tag 'making_150202_03.jpg', class:"ad" %></div></div>
 </div>

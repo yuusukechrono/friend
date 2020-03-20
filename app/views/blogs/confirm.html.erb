@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-md-2"><div class="visible-lg"><%= image_tag 'mori.jpg' %></div> </div>  
+  <div class="col-md-2"><div class="visible-lg"><%= image_tag 'mori.jpg', class:"ad" %></div> </div>  
 
   <div class="col-md-8">
     <header class="header">投稿確認画面</header>
@@ -16,6 +16,8 @@
             <div class="panel-body">
               <%= form.hidden_field :content %>
               <p><%= @blog.content %></p>
+              <%= image_tag(@blog.image.url, :size =>'410x300') if @blog.image && @blog.image.url %>
+              <%= form.hidden_field :image_cache %>
             </div>
             <div class="panel-footer">
               <%= form.submit  "登録する", class: 'btn btn-primary' %>
@@ -36,5 +38,5 @@
     </fotter>
   </div>
 
-  <div class="col-md-2"><div class="visible-lg"><%= image_tag 'making_150202_03.jpg' %></div></div>
+  <div class="col-md-2"><div class="visible-lg"><%= image_tag 'making_150202_03.jpg', class:"ad" %></div></div>
 </div>

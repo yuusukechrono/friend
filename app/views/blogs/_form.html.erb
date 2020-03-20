@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-md-2"><div class="visible-lg"><%= image_tag 'mori.jpg' %></div> </div>  
+  <div class="col-md-2"><div class="visible-lg"><%= image_tag 'mori.jpg', class:"ad" %></div> </div>  
   <div class="col-md-8">
     <header class="header">投稿</header>
 
@@ -24,6 +24,10 @@
           </div>
           <div class="panel-body">
             <%= form.text_area :content,  class: 'input-content', id: 'input-text'%><p id="counter">0文字</p>
+            <%= form.label :写真をアップロード %>   
+            
+            <%= form.file_field  :image %>
+            <%= form.hidden_field  :image_cache %>
           </div>
           <div class="panel-footer">
             <%= form.submit '登録する', class: 'btn btn-primary' %>
@@ -41,6 +45,6 @@
     </fotter>
   </div>
 
-  <div class="col-md-2"><div class="visible-lg"><%= image_tag 'making_150202_03.jpg' %></div></div>
+  <div class="col-md-2"><div class="visible-lg"><%= image_tag 'making_150202_03.jpg', class:"ad" %></div></div>
 </div>
 <% end %>

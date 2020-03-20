@@ -19,7 +19,7 @@ footer{
   color:black;
 }
 
-img {
+.ad {
   position:absolute;
   max-width: 100%;
   height: auto;
@@ -41,13 +41,14 @@ img {
 }
 
 .top-bottom{
-  height: 50px;
+  height: 100px;
   width: 700px;
   margin: 0 auto;
 }
 
-.panel panel-default{
+.panel panel-info{
   width:100%;
+  height:100%;
 }
 
 .panel-heading{
@@ -59,7 +60,10 @@ img {
 .panel-body{
   position: relative;
   width:100%;
-  height: 100%;
+  height:auto;
+  .picture{
+    height:300px;
+  }
 }
 
 .bottom-text{
